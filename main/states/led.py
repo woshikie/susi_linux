@@ -1,5 +1,5 @@
 import spidev
-from subprocess import check_output
+import subprocess
 import sys
 from math import ceil
 
