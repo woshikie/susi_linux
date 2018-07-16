@@ -15,16 +15,10 @@ class LED_COLOR:
 
     def __init__(self, num_led, global_brightness=MAX_BRIGHTNESS,
                  order='rgb', bus=0, device=1, max_speed_hz=8000000):
-<<<<<<< HEAD
-        output = check_output(["/usr/bin/aplay", "-l"], shell=False).decode(sys.stdout.encoding)
-        self.driverInstalled = output.find("seeed") != -1
-        if (not self.driverInstalled):
-=======
         output = subprocess.check_output(
-            ["aplay", "-l"]).decode(sys.stdout.encoding)
+            ["/usr/bin/aplay", "-l"]).decode(sys.stdout.encoding)
         self.driver_installed = output.find("seeed") != -1
         if (not self.driver_installed):
->>>>>>> fix/seeed_drivers_not_found
             return
         self.num_led = num_led  # The number of LEDs in the Strip
         order = order.lower()
