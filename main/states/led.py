@@ -14,8 +14,8 @@ class LED_COLOR:
 
     def __init__(self, num_led, global_brightness=MAX_BRIGHTNESS,
                  order='rgb', bus=0, device=1, max_speed_hz=8000000):
-        output = check_output(["/usr/bin/aplay", "-l"])
-        output = output.decode(sys.stdout.encoding)
+        cmd = ["/usr/bin/aplay", "-l"]
+        output = check_output(cmd).decode(sys.stdout.encoding)
         self.driverInstalled = output.find("seeed") != -1
         if (not self.driverInstalled):
             return
